@@ -33,6 +33,22 @@
                     },
                     letterSpacing: {
                         widest: '.15em',
+                    },
+                    animation: {
+                        'float': 'float 10s ease-in-out infinite',
+                        'float-delayed': 'float 12s ease-in-out 5s infinite',
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'zoom-slow': 'zoom 20s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+                        },
+                        zoom: {
+                            '0%': { transform: 'scale(1.1)' },
+                            '100%': { transform: 'scale(1.0)' },
+                        }
                     }
                 }
             }
@@ -44,94 +60,213 @@
         html {
             scroll-behavior: smooth;
         }
-        
-        /* Custom Utilities */
-        .writing-vertical {
-            writing-mode: vertical-rl;
-            text-orientation: upright;
+
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background-color: #1A3C40;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
         }
-        
-        .fade-in-up {
+        #loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loading-logo {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            animation: logoFadeIn 1s ease-out forwards;
+        }
+        @keyframes logoFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Image Animation */
+        .hero-bg-anim {
+            animation: zoomBg 20s ease-out infinite alternate;
+        }
+        @keyframes zoomBg {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
         }
         
-        .fade-in-up.visible {
+        /* Text Reveal Animation */
+        .char-reveal span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(5px);
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .char-reveal.visible span {
             opacity: 1;
             transform: translateY(0);
+            filter: blur(0);
+        }
+        
+        /* Scroll Animations */
+        .anim-element {
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .fade-in-up { transform: translateY(40px); }
+        .fade-in-left { transform: translateX(-40px); }
+        .fade-in-right { transform: translateX(40px); }
+        .zoom-in { transform: scale(0.95); }
+        
+        .anim-element.visible {
+            opacity: 1;
+            transform: translate(0) scale(1);
         }
 
-        /* Hero Image Overlay Gradient */
+        /* Staggered Delays for Grid Items */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Hero Overlay Gradient */
         .hero-overlay {
-            background: linear-gradient(to right, rgba(26, 60, 64, 0.85) 0%, rgba(26, 60, 64, 0.4) 100%);
+            background: linear-gradient(to right, rgba(26, 60, 64, 0.9) 0%, rgba(26, 60, 64, 0.4) 100%);
         }
 
-        /* Button Hover Effect */
+        /* Button Hover Effect (Ripple/Lift) */
         .btn-hover {
-            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .btn-hover:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.2);
+        }
+        .btn-hover::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.15);
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 50%;
+            transition: transform 0.6s ease-out;
+        }
+        .btn-hover:hover::after {
+            transform: translate(-50%, -50%) scale(1);
         }
 
-        /* FAQ Accordion Details */
+        /* FAQ Details Animation */
         details > summary {
             list-style: none;
         }
         details > summary::-webkit-details-marker {
             display: none;
         }
+        details[open] summary ~ * {
+            animation: sweep 0.5s ease-in-out;
+        }
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px); }
+            100%  {opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Floating Background Elements */
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+            opacity: 0.6;
+            pointer-events: none;
+        }
     </style>
 </head>
-<body class="font-sans text-text antialiased bg-white selection:bg-primary selection:text-white">
+<body class="font-sans text-text antialiased bg-white selection:bg-primary selection:text-white overflow-x-hidden">
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="text-center loading-logo">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-primary font-serif font-bold text-3xl mb-4 mx-auto shadow-lg">の</div>
+            <p class="text-white font-serif tracking-widest text-xl">のぶのぶM&A</p>
+        </div>
+    </div>
 
     <!-- Header -->
-    <header class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100 py-4">
+    <header id="main-header" class="fixed w-full z-50 transition-all duration-500 bg-transparent py-6">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <!-- Logo Placeholder -->
-                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-serif font-bold">の</div>
-                <span class="text-xl font-bold tracking-widest text-primary font-serif">のぶのぶM&A</span>
+            <div class="flex items-center gap-2 opacity-0 -translate-y-4 animate-slideDown" style="animation-delay: 1.2s; animation-fill-mode: forwards;">
+                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-serif font-bold shadow-md">の</div>
+                <span class="text-xl font-bold tracking-widest text-primary font-serif drop-shadow-sm bg-white/80 px-2 rounded">のぶのぶM&A</span>
             </div>
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="#philosophy" class="text-sm font-medium hover:text-primary transition-colors">理念</a>
-                <a href="#reason" class="text-sm font-medium hover:text-primary transition-colors">仕組み</a>
-                <a href="#flow" class="text-sm font-medium hover:text-primary transition-colors">流れ</a>
-                <a href="#faq" class="text-sm font-medium hover:text-primary transition-colors">Q&A</a>
-                <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-full text-sm hover:bg-opacity-90 transition-all shadow-md">無料相談</a>
+            <nav class="hidden md:flex items-center gap-8 opacity-0 -translate-y-4 animate-slideDown" style="animation-delay: 1.4s; animation-fill-mode: forwards;">
+                <a href="#philosophy" class="text-sm font-medium hover:text-primary transition-colors bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">理念</a>
+                <a href="#reason" class="text-sm font-medium hover:text-primary transition-colors bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">仕組み</a>
+                <a href="#flow" class="text-sm font-medium hover:text-primary transition-colors bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">流れ</a>
+                <a href="#faq" class="text-sm font-medium hover:text-primary transition-colors bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">Q&A</a>
+                <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-full text-sm hover:bg-opacity-90 transition-all shadow-md transform hover:scale-105">無料相談</a>
             </nav>
         </div>
     </header>
 
+    <style>
+        @keyframes slideDown {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .header-scrolled span {
+             background: transparent;
+             padding: 0;
+        }
+        .header-scrolled nav a:not(:last-child) {
+            background: transparent;
+        }
+    </style>
+
     <!-- First View (Hero) -->
     <section class="relative w-full h-screen flex items-center overflow-hidden">
-        <!-- Background Image with Fallback -->
-        <div class="absolute inset-0 z-0">
+        <!-- Background Image with Zoom Animation -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
             <img src="images/1.png" 
                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1631549916768-4119b2d5f926?q=80&w=2079&auto=format&fit=crop';" 
                  alt="薬局のカウンターに立つ薬剤師" 
-                 class="w-full h-full object-cover">
+                 class="w-full h-full object-cover hero-bg-anim">
         </div>
         <!-- Overlay -->
         <div class="absolute inset-0 hero-overlay z-10"></div>
+        
+        <!-- Floating Particles (Abstract) -->
+        <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-white/10 rounded-full blur-3xl animate-float z-10 pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-3xl animate-float-delayed z-10 pointer-events-none"></div>
 
         <div class="container mx-auto px-6 relative z-20 pt-20">
-            <div class="max-w-3xl text-white fade-in-up">
-                <p class="text-accent font-serif tracking-widest mb-4 text-sm md:text-base">調剤薬局専門の事業承継支援</p>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-medium leading-tight mb-8">
+            <div class="max-w-3xl text-white">
+                <p class="text-accent font-serif tracking-widest mb-4 text-sm md:text-base anim-element fade-in-up" style="transition-delay: 1.5s;">調剤薬局専門の事業承継支援</p>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-medium leading-tight mb-8 char-reveal" id="hero-title">
                     この薬局を、<br>
                     いちばん良いかたちで<br>
                     次の世代へ。
                 </h1>
-                <p class="text-lg md:text-xl font-light leading-relaxed opacity-90 mb-10 border-l-4 border-accent pl-6">
+                
+                <p class="text-lg md:text-xl font-light leading-relaxed opacity-90 mb-10 border-l-4 border-accent pl-6 anim-element fade-in-left" style="transition-delay: 2.2s;">
                     譲渡側も譲受側も手数料0円。<br>
                     だからこそ、急がせない。煽らない。<br>
                     “適切な世代交代”を実現するための選択です。
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex flex-col sm:flex-row gap-4 anim-element fade-in-up" style="transition-delay: 2.5s;">
                     <a href="#contact" class="btn-hover inline-flex items-center justify-center bg-white text-primary px-8 py-4 rounded-full font-bold text-lg shadow-lg group">
                         無料で譲渡相談する
                         <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
@@ -144,7 +279,7 @@
         </div>
         
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-20 flex flex-col items-center gap-2 opacity-70">
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-20 flex flex-col items-center gap-2 opacity-70 cursor-pointer" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
             <span class="text-xs tracking-widest uppercase">Scroll</span>
             <i data-lucide="chevron-down" class="w-5 h-5"></i>
         </div>
@@ -152,28 +287,29 @@
 
     <!-- Brand Declaration (Philosophy) -->
     <section id="philosophy" class="py-24 md:py-32 bg-secondary/30 relative overflow-hidden">
-        <!-- Decorative Japanese Pattern Background (Subtle) -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <!-- Floating Animated Backgrounds -->
+        <div class="floating-orb w-96 h-96 bg-primary/5 -top-20 -right-20 animate-float"></div>
+        <div class="floating-orb w-64 h-64 bg-accent/10 bottom-0 left-0 animate-float-delayed"></div>
         
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center fade-in-up">
-                <h2 class="text-2xl md:text-4xl font-serif font-medium leading-loose text-primary mb-12">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl md:text-4xl font-serif font-medium leading-loose text-primary mb-12 anim-element zoom-in">
                     譲渡からも、譲受からも、<br>
                     手数料を取らない。<br>
-                    <span class="text-base md:text-xl mt-6 block text-text font-normal">それが、薬局の適切な世代交代を進めるための<br class="md:hidden">私たちの選択です。</span>
+                    <span class="text-base md:text-xl mt-6 block text-text font-normal anim-element fade-in-up stagger-1">それが、薬局の適切な世代交代を進めるための<br class="md:hidden">私たちの選択です。</span>
                 </h2>
                 
                 <div class="text-left md:text-center md:mx-auto max-w-2xl space-y-8 font-light text-lg leading-loose text-gray-700">
-                    <p>
+                    <p class="anim-element fade-in-up stagger-2">
                         調剤薬局の世代交代が滞ると、困るのは患者さんと地域です。<br>
                         一方で、M＆Aが「手数料が発生するイベント」になると、売り手も買い手も本音の相談が遅れ、判断が条件偏重になりがちです。
                     </p>
-                    <p>
+                    <p class="anim-element fade-in-up stagger-3">
                         のぶのぶM＆Aは、譲渡側・譲受側の双方から仲介手数料をいただかない仕組みにすることで、早い段階から相談できる環境をつくり、理念の一致を軸に、無理のない世代交代を後押しします。
                     </p>
                 </div>
 
-                <div class="mt-16 inline-block border-y border-primary/20 py-8 px-4 md:px-12">
+                <div class="mt-16 inline-block border-y border-primary/20 py-8 px-4 md:px-12 anim-element fade-in-up stagger-4">
                     <p class="font-serif text-xl md:text-2xl text-primary font-medium">
                         私たちは「成約件数」ではなく、<br>
                         「引き継いだ後に薬局が安定して続くこと」を成果と考えます。
@@ -184,23 +320,23 @@
     </section>
 
     <!-- Why 0 Yen? (Reason) -->
-    <section id="reason" class="py-24 bg-white">
+    <section id="reason" class="py-24 bg-white relative">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="fade-in-up">
+                <div class="anim-element fade-in-left">
                     <span class="text-accent font-bold tracking-widest text-sm uppercase mb-2 block">Our Design</span>
                     <h2 class="text-3xl md:text-5xl font-serif text-primary mb-8 leading-tight">
                         0円は、<br>値引きではなく、<br>「設計」です。
                     </h2>
                     <div class="space-y-6 text-gray-600 leading-relaxed">
-                        <p>
+                        <p class="stagger-1 anim-element fade-in-up">
                             手数料が発生すると、どうしても「決めること」自体が目的になりやすい。<br>
                             しかし本来の目的は、患者さん・スタッフ・地域にとって無理のない形で薬局が引き継がれることです。
                         </p>
-                        <p>
+                        <p class="stagger-2 anim-element fade-in-up">
                             のぶのぶM＆Aは、譲渡側・譲受側の双方から仲介手数料を取らないことで、早期相談を促し、理念のすり合わせに時間を使える構造にしています。
                         </p>
-                        <p class="flex items-start gap-3 mt-4 text-primary font-medium">
+                        <p class="flex items-start gap-3 mt-4 text-primary font-medium stagger-3 anim-element fade-in-up">
                             <i data-lucide="check-circle-2" class="w-6 h-6 flex-shrink-0 text-accent"></i>
                             中立性を損なう形で“急がせるインセンティブ”をつくらないためです。
                         </p>
@@ -208,13 +344,14 @@
                 </div>
                 
                 <!-- Graphic Representation with Fallback -->
-                <div class="relative h-96 rounded-2xl overflow-hidden shadow-2xl fade-in-up delay-100">
+                <div class="relative h-96 rounded-2xl overflow-hidden shadow-2xl anim-element fade-in-right delay-200 group">
+                    <div class="absolute inset-0 bg-primary/10 z-10 transition-opacity duration-700 group-hover:opacity-0"></div>
                     <img src="images/2.png" 
                          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=2070&auto=format&fit=crop';" 
                          alt="手数料0円の仕組みイメージ（架け橋）" 
-                         class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6 text-white">
-                        <p class="font-serif">「コスト」の壁をなくし、「対話」の時間をつくる。</p>
+                         class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8 text-white z-20 translate-y-2 transition-transform duration-500 group-hover:translate-y-0">
+                        <p class="font-serif text-lg tracking-wider">「コスト」の壁をなくし、「対話」の時間をつくる。</p>
                     </div>
                 </div>
             </div>
@@ -222,9 +359,14 @@
     </section>
 
     <!-- Benefits (Translation to Benefit) -->
-    <section id="benefits" class="py-24 bg-primary text-white relative">
+    <section id="benefits" class="py-24 bg-primary text-white relative overflow-hidden">
+        <!-- Animated Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+             <div class="absolute w-full h-full bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] animate-pulse-slow"></div>
+        </div>
+
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-20 fade-in-up">
+            <div class="text-center mb-20 anim-element fade-in-up">
                 <span class="text-accent font-bold tracking-widest text-sm uppercase mb-2 block">Merit</span>
                 <h2 class="text-3xl md:text-4xl font-serif mb-6">早めに動けるから、<br class="md:hidden">守れるものが増えます。</h2>
                 <p class="text-white/70">結果として、譲渡後の「現場の安定」に繋がります。</p>
@@ -232,26 +374,34 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Card 1 -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-100">
-                    <i data-lucide="message-circle" class="w-10 h-10 text-accent mb-6"></i>
+                <div class="anim-element fade-in-up stagger-1 group bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="message-circle" class="w-8 h-8 text-accent"></i>
+                    </div>
                     <h3 class="text-xl font-serif mb-4">選択肢づくり</h3>
                     <p class="text-sm text-white/80 leading-relaxed">手数料を気にせず、早い段階で「どうすべきか」の相談から始められます。</p>
                 </div>
                 <!-- Card 2 -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-200">
-                    <i data-lucide="scale" class="w-10 h-10 text-accent mb-6"></i>
+                <div class="anim-element fade-in-up stagger-2 group bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="scale" class="w-8 h-8 text-accent"></i>
+                    </div>
                     <h3 class="text-xl font-serif mb-4">交渉の質が向上</h3>
                     <p class="text-sm text-white/80 leading-relaxed">理念・雇用・引継ぎの優先順位を整理し、条件交渉のブレを減らします。</p>
                 </div>
                 <!-- Card 3 -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-300">
-                    <i data-lucide="piggy-bank" class="w-10 h-10 text-accent mb-6"></i>
+                <div class="anim-element fade-in-up stagger-3 group bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="piggy-bank" class="w-8 h-8 text-accent"></i>
+                    </div>
                     <h3 class="text-xl font-serif mb-4">現場投資を守る</h3>
                     <p class="text-sm text-white/80 leading-relaxed">買い手の手数料負担がない分、現場の人員や教育への投資が守られやすくなります。</p>
                 </div>
                 <!-- Card 4 -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-400">
-                    <i data-lucide="handshake" class="w-10 h-10 text-accent mb-6"></i>
+                <div class="anim-element fade-in-up stagger-4 group bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="handshake" class="w-8 h-8 text-accent"></i>
+                    </div>
                     <h3 class="text-xl font-serif mb-4">運営方針の継承</h3>
                     <p class="text-sm text-white/80 leading-relaxed">短期回収の圧力が下がるため、あなたの運営方針が尊重されやすくなります。</p>
                 </div>
@@ -259,40 +409,45 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: Flow (ご利用の流れ) -->
+    <!-- Flow Section -->
     <section id="flow" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-             <div class="text-center mb-16 fade-in-up">
+             <div class="text-center mb-16 anim-element fade-in-up">
                 <span class="text-accent font-bold tracking-widest text-sm uppercase mb-2 block">Process</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-primary">合意までの流れ</h2>
             </div>
 
             <div class="relative max-w-4xl mx-auto">
                 <!-- Connecting Line (Desktop) -->
-                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -z-10 -translate-y-1/2"></div>
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -z-10 -translate-y-1/2 overflow-hidden">
+                    <div class="h-full bg-accent/50 w-full -translate-x-full transition-transform duration-[1.5s] ease-out delay-500 anim-line-fill"></div>
+                </div>
+                <style>
+                    .anim-line-fill.visible { transform: translateX(0); }
+                </style>
 
                 <div class="grid md:grid-cols-4 gap-8">
                     <!-- Step 1 -->
-                    <div class="bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-100">
-                        <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white">1</div>
+                    <div class="anim-element fade-in-up stagger-1 bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative group hover:border-accent/50 transition-colors duration-300">
+                        <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white shadow-sm group-hover:bg-accent transition-colors">1</div>
                         <h3 class="mt-4 font-bold text-lg mb-2 text-primary">無料相談</h3>
                         <p class="text-sm text-gray-600">まずは匿名でのご相談から。現状の整理をお手伝いします。</p>
                     </div>
                     <!-- Step 2 -->
-                    <div class="bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-200">
-                         <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white">2</div>
+                    <div class="anim-element fade-in-up stagger-2 bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative group hover:border-accent/50 transition-colors duration-300">
+                         <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white shadow-sm group-hover:bg-accent transition-colors">2</div>
                         <h3 class="mt-4 font-bold text-lg mb-2 text-primary">理念マッチング</h3>
                         <p class="text-sm text-gray-600">条件の前に、理念や想いが合うお相手を探します。</p>
                     </div>
                     <!-- Step 3 -->
-                    <div class="bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-300">
-                         <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white">3</div>
+                    <div class="anim-element fade-in-up stagger-3 bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative group hover:border-accent/50 transition-colors duration-300">
+                         <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white shadow-sm group-hover:bg-accent transition-colors">3</div>
                         <h3 class="mt-4 font-bold text-lg mb-2 text-primary">トップ面談</h3>
                         <p class="text-sm text-gray-600">経営者同士でお話しいただき、将来像を共有します。</p>
                     </div>
                     <!-- Step 4 -->
-                    <div class="bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-400">
-                         <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white">4</div>
+                    <div class="anim-element fade-in-up stagger-4 bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative group hover:border-accent/50 transition-colors duration-300">
+                         <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white shadow-sm group-hover:bg-accent transition-colors">4</div>
                         <h3 class="mt-4 font-bold text-lg mb-2 text-primary">条件合意・引継ぎ</h3>
                         <p class="text-sm text-gray-600">手数料0円で契約。浮いた資金でスムーズな引継ぎへ。</p>
                     </div>
@@ -302,9 +457,11 @@
     </section>
 
     <!-- Philosophy Match (Criteria) -->
-    <section class="py-24 bg-secondary/20">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden fade-in-up">
+    <section class="py-24 bg-secondary/20 relative overflow-hidden">
+        <div class="floating-orb w-[500px] h-[500px] bg-white/40 -left-20 top-1/2 -translate-y-1/2 animate-float"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-md shadow-2xl rounded-3xl overflow-hidden anim-element zoom-in">
                 <div class="p-10 md:p-16">
                     <h2 class="text-2xl md:text-3xl font-serif text-primary text-center mb-10">
                         世代交代でいちばん大切なのは、<br>
@@ -312,18 +469,18 @@
                     </h2>
 
                     <div class="grid md:grid-cols-2 gap-10">
-                        <div>
+                        <div class="anim-element fade-in-left stagger-1">
                             <p class="font-bold text-gray-400 text-sm mb-4 tracking-widest">売り手が守りたいもの</p>
                             <ul class="space-y-4">
-                                <li class="flex items-start gap-3">
-                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></span>
+                                <li class="flex items-start gap-3 group">
+                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-accent group-hover:text-white transition-colors duration-300"><i data-lucide="check" class="w-3 h-3"></i></span>
                                     <div>
                                         <strong class="block text-primary mb-1">患者さん対応</strong>
                                         <span class="text-sm text-gray-600">服薬指導、在宅医療への姿勢、かかりつけ機能</span>
                                     </div>
                                 </li>
-                                <li class="flex items-start gap-3">
-                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></span>
+                                <li class="flex items-start gap-3 group">
+                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-accent group-hover:text-white transition-colors duration-300"><i data-lucide="check" class="w-3 h-3"></i></span>
                                     <div>
                                         <strong class="block text-primary mb-1">スタッフの処遇</strong>
                                         <span class="text-sm text-gray-600">雇用の継続、給与・待遇、教育環境</span>
@@ -331,18 +488,18 @@
                                 </li>
                             </ul>
                         </div>
-                        <div>
+                        <div class="anim-element fade-in-right stagger-2">
                             <p class="font-bold text-gray-400 text-sm mb-4 tracking-widest invisible md:visible">売り手が守りたいもの</p>
                             <ul class="space-y-4">
-                                <li class="flex items-start gap-3">
-                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></span>
+                                <li class="flex items-start gap-3 group">
+                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-accent group-hover:text-white transition-colors duration-300"><i data-lucide="check" class="w-3 h-3"></i></span>
                                     <div>
                                         <strong class="block text-primary mb-1">運営の継続性</strong>
                                         <span class="text-sm text-gray-600">業務の標準化と裁量、在庫管理手法</span>
                                     </div>
                                 </li>
-                                <li class="flex items-start gap-3">
-                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></span>
+                                <li class="flex items-start gap-3 group">
+                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-accent group-hover:text-white transition-colors duration-300"><i data-lucide="check" class="w-3 h-3"></i></span>
                                     <div>
                                         <strong class="block text-primary mb-1">地域との連携</strong>
                                         <span class="text-sm text-gray-600">医療機関・ケアマネジャー・施設との関係</span>
@@ -352,7 +509,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-12 p-6 bg-secondary/30 rounded-lg text-center">
+                    <div class="mt-12 p-6 bg-secondary/30 rounded-lg text-center anim-element fade-in-up stagger-3">
                         <p class="font-serif text-primary text-lg">
                             価格は重要です。<br class="md:hidden">ただ、価格の前に“続く条件”をそろえるのが、<br class="hidden md:inline">適切な世代交代です。
                         </p>
@@ -362,20 +519,20 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: FAQ (よくある質問) -->
+    <!-- FAQ -->
     <section id="faq" class="py-24 bg-white">
         <div class="container mx-auto px-6 max-w-3xl">
-            <div class="text-center mb-16 fade-in-up">
+            <div class="text-center mb-16 anim-element fade-in-up">
                 <span class="text-accent font-bold tracking-widest text-sm uppercase mb-2 block">Q&A</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-primary">よくあるご質問</h2>
             </div>
             
-            <div class="space-y-4 fade-in-up delay-100">
+            <div class="space-y-4">
                 <!-- Q1 -->
-                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100">
+                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:bg-gray-100 hover:shadow-md anim-element fade-in-up stagger-1">
                     <summary class="flex items-center justify-between p-6 font-medium text-lg text-primary">
                         <span>本当に手数料は0円ですか？</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-300"></i>
                     </summary>
                     <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4">
                         はい、譲渡側・譲受側ともに仲介手数料は一切いただきません。私たちは世代交代後の薬局の存続を最優先にしており、その障壁となるコストを排除する設計にしています。ただし、登記や契約書の作成など、士業への実費が発生する場合はございます。
@@ -383,10 +540,10 @@
                 </details>
 
                 <!-- Q2 -->
-                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100">
+                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:bg-gray-100 hover:shadow-md anim-element fade-in-up stagger-2">
                     <summary class="flex items-center justify-between p-6 font-medium text-lg text-primary">
                         <span>従業員に知られずに相談できますか？</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-300"></i>
                     </summary>
                     <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4">
                         可能です。秘密保持契約を締結し、情報管理を徹底いたします。初期段階では匿名でのご相談も承っておりますので、安心してご相談ください。
@@ -394,10 +551,10 @@
                 </details>
 
                 <!-- Q3 -->
-                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100">
+                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:bg-gray-100 hover:shadow-md anim-element fade-in-up stagger-3">
                     <summary class="flex items-center justify-between p-6 font-medium text-lg text-primary">
                         <span>小規模な薬局でも相談可能ですか？</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-300"></i>
                     </summary>
                     <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4">
                         もちろんです。むしろ、地域に根差した小規模な薬局こそ、無理のない引継ぎが必要だと考えています。規模に関わらず、理念を大切にされる方であれば歓迎いたします。
@@ -405,10 +562,10 @@
                 </details>
 
                 <!-- Q4 -->
-                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100">
+                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:bg-gray-100 hover:shadow-md anim-element fade-in-up stagger-4">
                     <summary class="flex items-center justify-between p-6 font-medium text-lg text-primary">
                         <span>もし話がまとまらなかった場合、費用はかかりますか？</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-300"></i>
                     </summary>
                     <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4">
                         いいえ、一切かかりません。お互いが納得できる場合のみ進めるのが私たちのスタンスですので、無理な成約を勧めることはありません。
@@ -418,7 +575,7 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: Company Message (代表メッセージ) -->
+    <!-- Company Message -->
     <section id="message" class="py-24 bg-primary text-white relative overflow-hidden">
         <div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
              <!-- Abstract background pattern placeholder -->
@@ -430,14 +587,14 @@
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <!-- Message Image with Fallback -->
-                <div class="fade-in-up">
+                <div class="anim-element fade-in-left">
                     <img src="images/3.png" 
                          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop';" 
                          alt="代表者メッセージイメージ" 
-                         class="rounded-xl shadow-2xl w-full object-cover h-[500px]">
+                         class="rounded-xl shadow-2xl w-full object-cover h-[500px] transform transition-transform hover:scale-105 duration-700">
                 </div>
                 
-                <div class="fade-in-up delay-100">
+                <div class="anim-element fade-in-right delay-200">
                     <span class="text-accent font-bold tracking-widest text-sm uppercase mb-4 block">Message</span>
                     <h2 class="text-3xl md:text-4xl font-serif mb-8 leading-snug">
                         「残すこと」に、<br>もっと純粋でありたい。
@@ -459,24 +616,26 @@
 
     <!-- Closing (CTA) -->
     <section id="contact" class="py-24 md:py-32 bg-white relative overflow-hidden text-center">
-        <!-- Abstract Decoration -->
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/40 rounded-full blur-3xl -z-10"></div>
+        <!-- Animated Blob Background -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/40 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
 
-        <div class="container mx-auto px-6 relative z-10 fade-in-up">
-            <h2 class="text-3xl md:text-5xl font-serif text-primary mb-8 leading-snug">
-                薬局の世代交代を、<br>
-                もっと自然に。もっと誠実に。
-            </h2>
-            <div class="max-w-2xl mx-auto mb-12 space-y-4 text-gray-600 leading-relaxed">
-                <p>譲渡は、終わりではなくバトンです。</p>
-                <p>双方の手数料を0円にするのは、相談を早め、無理のない合意形成を増やすため。<br>この薬局の理念を、次の担い手へ。いちばん良い形でつなぎましょう。</p>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto anim-element zoom-in">
+                <h2 class="text-3xl md:text-5xl font-serif text-primary mb-8 leading-snug">
+                    薬局の世代交代を、<br>
+                    もっと自然に。もっと誠実に。
+                </h2>
+                <div class="max-w-2xl mx-auto mb-12 space-y-4 text-gray-600 leading-relaxed">
+                    <p>譲渡は、終わりではなくバトンです。</p>
+                    <p>双方の手数料を0円にするのは、相談を早め、無理のない合意形成を増やすため。<br>この薬局の理念を、次の担い手へ。いちばん良い形でつなぎましょう。</p>
+                </div>
+                
+                <a href="#" class="btn-hover inline-flex items-center justify-center bg-primary text-white px-10 py-5 rounded-full font-bold text-lg shadow-xl group hover:bg-primary/90">
+                    無料で譲渡相談する
+                    <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <p class="mt-4 text-sm text-gray-500">匿名OK / 秘密厳守</p>
             </div>
-            
-            <a href="#" class="btn-hover inline-flex items-center justify-center bg-primary text-white px-10 py-5 rounded-full font-bold text-lg shadow-xl group hover:bg-primary/90">
-                無料で譲渡相談する
-                <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-            </a>
-            <p class="mt-4 text-sm text-gray-500">匿名OK / 秘密厳守</p>
         </div>
     </section>
 
@@ -484,7 +643,7 @@
     <footer class="bg-gray-50 py-12 border-t border-gray-100">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div>
+                <div class="anim-element fade-in-up">
                     <div class="flex items-center gap-2 mb-4">
                          <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white font-serif text-xs font-bold">の</div>
                         <span class="text-lg font-bold text-primary font-serif">のぶのぶM&A</span>
@@ -495,7 +654,7 @@
                         <li>必要に応じて、資料作成支援や士業連携など任意のオプションをご案内する場合があります（実施は希望者のみ）。</li>
                     </ul>
                 </div>
-                <div class="flex flex-col md:items-end justify-center">
+                <div class="flex flex-col md:items-end justify-center anim-element fade-in-up stagger-1">
                    <div class="space-x-6 text-sm text-gray-600 mb-4">
                        <a href="#" class="hover:text-primary transition-colors">運営会社</a>
                        <a href="#" class="hover:text-primary transition-colors">プライバシーポリシー</a>
@@ -512,7 +671,45 @@
         // Lucide Icons Initialization
         lucide.createIcons();
 
-        // Fade In Animation on Scroll
+        // Loading Screen Logic
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loading-screen');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                initHeroAnimations();
+            }, 1000); // 1s delay
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Hero Text Character Reveal Logic
+        function initHeroAnimations() {
+            const title = document.getElementById('hero-title');
+            const text = title.innerHTML;
+            // Split text carefully maintaining line breaks
+            const parts = text.split('<br>');
+            title.innerHTML = parts.map(part => {
+                const chars = part.trim().split('');
+                return chars.map((char, index) => 
+                    `<span style="transition-delay: ${index * 0.05 + 0.5}s">${char}</span>`
+                ).join('') + '<br>';
+            }).join('');
+            
+            // Trigger animation
+            setTimeout(() => {
+                title.classList.add('visible');
+            }, 100);
+        }
+
+        // Intersection Observer for Scroll Animations
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -523,14 +720,35 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Add specific class for line animation if needed
+                    if (entry.target.querySelector('.anim-line-fill')) {
+                         entry.target.querySelector('.anim-line-fill').classList.add('visible');
+                    }
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in-up').forEach(el => {
+        document.querySelectorAll('.anim-element').forEach(el => {
             observer.observe(el);
         });
+        
+        // Also observe the container for the connecting line in Flow section
+        const flowContainer = document.querySelector('#flow .relative');
+        if(flowContainer) {
+            const lineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const line = entry.target.querySelector('.bg-accent\\/50');
+                        if(line) line.classList.add('translate-x-0');
+                        // Use a separate class if direct style manipulation is tricky
+                         const animLine = entry.target.querySelector('.anim-line-fill');
+                         if(animLine) animLine.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.3 });
+            lineObserver.observe(flowContainer);
+        }
     </script>
 </body>
 </html>
