@@ -1,573 +1,536 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d6d6d; -webkit-text-stroke: #6d6d6d}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6b0001; -webkit-text-stroke: #6b0001}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #fb0007; -webkit-text-stroke: #fb0007}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #0000ff; -webkit-text-stroke: #0000ff}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000; min-height: 16.0px}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4d5055; -webkit-text-stroke: #4d5055}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #093c94; -webkit-text-stroke: #093c94}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #137646; -webkit-text-stroke: #137646}
-    span.s1 {font-kerning: none; background-color: #ecf1f7}
-    span.s2 {font-kerning: none; color: #fb0007; background-color: #ecf1f7; -webkit-text-stroke: 0px #fb0007}
-    span.s3 {font-kerning: none; color: #2a2a2a; background-color: #ecf1f7; -webkit-text-stroke: 0px #2a2a2a}
-    span.s4 {font-kerning: none; color: #000000; background-color: #ecf1f7; -webkit-text-stroke: 0px #000000}
-    span.s5 {font-kerning: none; color: #0000ff; background-color: #ecf1f7; -webkit-text-stroke: 0px #0000ff}
-    span.s6 {font-kerning: none; color: #6b0001; background-color: #ecf1f7; -webkit-text-stroke: 0px #6b0001}
-    span.s7 {font-kerning: none}
-    span.s8 {font-kerning: none; color: #18702b; background-color: #ecf1f7; -webkit-text-stroke: 0px #18702b}
-    span.s9 {font-kerning: none; color: #4d5055; background-color: #ecf1f7; -webkit-text-stroke: 0px #4d5055}
-    span.s10 {font-kerning: none; color: #093c94; background-color: #ecf1f7; -webkit-text-stroke: 0px #093c94}
-    span.s11 {font-kerning: none; color: #137646; background-color: #ecf1f7; -webkit-text-stroke: 0px #137646}
-    span.s12 {font-kerning: none; color: #6f0ec3; background-color: #ecf1f7; -webkit-text-stroke: 0px #6f0ec3}
-    span.s13 {font-kerning: none; color: #a4450b; background-color: #ecf1f7; -webkit-text-stroke: 0px #a4450b}
-    span.s14 {font-kerning: none; color: #0e6e6d; background-color: #ecf1f7; -webkit-text-stroke: 0px #0e6e6d}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>のぶのぶM&A | 薬局の適切な世代交代のために</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1A3C40', // Deep Teal/Navy
+                        secondary: '#EDE6DB', // Warm Beige
+                        accent: '#D4A373', // Muted Gold/Earth
+                        text: '#2D3748',
+                        light: '#F7F9F9',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        serif: ['"Shippori Mincho"', 'serif'],
+                    },
+                    letterSpacing: {
+                        widest: '.15em',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Utilities */
+        .writing-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Image Overlay Gradient */
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(26, 60, 64, 0.85) 0%, rgba(26, 60, 64, 0.4) 100%);
+        }
+
+        /* Button Hover Effect */
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* FAQ Accordion Details */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"ja"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">のぶのぶM&amp;A | 薬局の適切な世代交代のために</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Google Fonts --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"preconnect"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"preconnect"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.gstatic.com"</span><span class="s4"> </span><span class="s2">crossorigin</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&amp;family=Shippori+Mincho:wght@400;500;600;700&amp;display=swap"</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Tailwind CSS --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Icons (Lucide) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/lucide@latest"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>tailwind.config = {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>theme: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>extend: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>colors: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>primary: </span><span class="s8">'#1A3C40'</span><span class="s1">, </span><span class="s9">// Deep Teal/Navy</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>secondary: </span><span class="s8">'#EDE6DB'</span><span class="s1">, </span><span class="s9">// Warm Beige</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>accent: </span><span class="s8">'#D4A373'</span><span class="s1">, </span><span class="s9">// Muted Gold/Earth</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>text: </span><span class="s8">'#2D3748'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>light: </span><span class="s8">'#F7F9F9'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>fontFamily: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>sans: [</span><span class="s8">'"Noto Sans JP"'</span><span class="s1">, </span><span class="s8">'sans-serif'</span><span class="s1">],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>serif: [</span><span class="s8">'"Shippori Mincho"'</span><span class="s1">, </span><span class="s8">'serif'</span><span class="s1">],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>letterSpacing: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>widest: </span><span class="s8">'.15em'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Smooth Scrolling */</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">html</span><span class="s1"> {</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">scroll-behavior:</span><span class="s4"> </span><span class="s10">smooth</span><span class="s4">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Custom Utilities */</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.writing-vertical</span><span class="s4"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">writing-mode:</span><span class="s1"> </span><span class="s10">vertical-rl</span><span class="s1">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">text-orientation:</span><span class="s4"> </span><span class="s10">upright</span><span class="s4">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.fade-in-up</span><span class="s4"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">opacity:</span><span class="s1"> </span><span class="s11">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transform:</span><span class="s1"> </span><span class="s10">translateY(</span><span class="s11">20px</span><span class="s10">)</span><span class="s1">;</span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">transition:</span><span class="s4"> </span><span class="s1">opacity</span><span class="s4"> </span><span class="s11">0.8s</span><span class="s4"> </span><span class="s1">ease-out</span><span class="s4">, </span><span class="s1">transform</span><span class="s4"> </span><span class="s11">0.8s</span><span class="s4"> </span><span class="s1">ease-out</span><span class="s4">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.fade-in-up.visible</span><span class="s4"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">opacity:</span><span class="s1"> </span><span class="s11">1</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transform:</span><span class="s1"> </span><span class="s10">translateY(</span><span class="s11">0</span><span class="s10">)</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Hero Image Overlay Gradient */</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.hero-overlay</span><span class="s4"> {</span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s4"> </span><span class="s1">linear-gradient(to</span><span class="s4"> </span><span class="s1">right</span><span class="s4">, </span><span class="s1">rgba(</span><span class="s11">26</span><span class="s4">, </span><span class="s11">60</span><span class="s4">, </span><span class="s11">64</span><span class="s4">, </span><span class="s11">0.85</span><span class="s1">)</span><span class="s4"> </span><span class="s11">0%</span><span class="s4">, </span><span class="s1">rgba(</span><span class="s11">26</span><span class="s4">, </span><span class="s11">60</span><span class="s4">, </span><span class="s11">64</span><span class="s4">, </span><span class="s11">0.4</span><span class="s1">)</span><span class="s4"> </span><span class="s11">100%</span><span class="s1">)</span><span class="s4">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Button Hover Effect */</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">.btn-hover</span><span class="s1"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transition:</span><span class="s1"> </span><span class="s10">all</span><span class="s1"> </span><span class="s11">0.3s</span><span class="s1"> </span><span class="s10">ease</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.btn-hover:hover</span><span class="s4"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transform:</span><span class="s1"> </span><span class="s10">translateY(</span><span class="s11">-2px</span><span class="s10">)</span><span class="s1">;</span></p>
-<p class="p9"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow:</span><span class="s4"> </span><span class="s1">0</span><span class="s4"> </span><span class="s1">10px</span><span class="s4"> </span><span class="s1">15px</span><span class="s4"> </span><span class="s1">-3px</span><span class="s4"> </span><span class="s10">rgba(</span><span class="s1">0</span><span class="s4">, </span><span class="s1">0</span><span class="s4">, </span><span class="s1">0</span><span class="s4">, </span><span class="s1">0.1</span><span class="s10">)</span><span class="s4">, </span><span class="s1">0</span><span class="s4"> </span><span class="s1">4px</span><span class="s4"> </span><span class="s1">6px</span><span class="s4"> </span><span class="s1">-2px</span><span class="s4"> </span><span class="s10">rgba(</span><span class="s1">0</span><span class="s4">, </span><span class="s1">0</span><span class="s4">, </span><span class="s1">0</span><span class="s4">, </span><span class="s1">0.05</span><span class="s10">)</span><span class="s4">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* FAQ Accordion Details */</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">details</span><span class="s4"> &gt; </span><span class="s1">summary</span><span class="s4"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">list-style:</span><span class="s1"> </span><span class="s10">none</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">details</span><span class="s4"> &gt; </span><span class="s1">summary::-webkit-details-marker</span><span class="s4"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s10">none</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s3">&lt;</span><span class="s6">body</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-sans text-text antialiased bg-white selection:bg-primary selection:text-white"</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Header --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">header</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100 py-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6 flex justify-between items-center"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center gap-2"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Logo Placeholder --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-serif font-bold"</span><span class="s3">&gt;</span><span class="s4">の</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xl font-bold tracking-widest text-primary font-serif"</span><span class="s3">&gt;</span><span class="s4">のぶのぶM&amp;A</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">nav</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hidden md:flex items-center gap-8"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#philosophy"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm font-medium hover:text-primary transition-colors"</span><span class="s3">&gt;</span><span class="s4">理念</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#reason"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm font-medium hover:text-primary transition-colors"</span><span class="s3">&gt;</span><span class="s4">仕組み</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#flow"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm font-medium hover:text-primary transition-colors"</span><span class="s3">&gt;</span><span class="s4">流れ</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#faq"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm font-medium hover:text-primary transition-colors"</span><span class="s3">&gt;</span><span class="s4">Q&amp;A</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#contact"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-primary text-white px-6 py-2 rounded-full text-sm hover:bg-opacity-90 transition-all shadow-md"</span><span class="s3">&gt;</span><span class="s4">無料相談</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">nav</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">header</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- First View (Hero) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative w-full h-screen flex items-center overflow-hidden"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Background Image with Fallback --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute inset-0 z-0"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">img</span><span class="s1"> </span><span class="s2">src</span><span class="s3">=</span><span class="s5">"images/1.png"</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                 </span></span><span class="s2">onerror</span><span class="s3">=</span><span class="s1">"this.onerror=null; this.src='https://images.unsplash.com/photo-1631549916768-4119b2d5f926?q=80&amp;w=2079&amp;auto=format&amp;fit=crop';"</span><span class="s4"><span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                 </span></span><span class="s2">alt</span><span class="s3">=</span><span class="s5">"薬局のカウンターに立つ薬剤師"</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                 </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full h-full object-cover"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Overlay --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute inset-0 hero-overlay z-10"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6 relative z-20 pt-20"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-3xl text-white fade-in-up"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-accent font-serif tracking-widest mb-4 text-sm md:text-base"</span><span class="s3">&gt;</span><span class="s4">調剤薬局専門の事業承継支援</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h1</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-4xl md:text-6xl lg:text-7xl font-serif font-medium leading-tight mb-8"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>この薬局を、</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>いちばん良いかたちで</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>次の世代へ。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">h1</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-lg md:text-xl font-light leading-relaxed opacity-90 mb-10 border-l-4 border-accent pl-6"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>譲渡側も譲受側も手数料0円。</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>だからこそ、急がせない。煽らない。</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>“適切な世代交代”を実現するための選択です。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex flex-col sm:flex-row gap-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#contact"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"btn-hover inline-flex items-center justify-center bg-white text-primary px-8 py-4 rounded-full font-bold text-lg shadow-lg group"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>無料で譲渡相談する</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"arrow-right"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-white/80 text-sm flex items-center gap-2 px-2 py-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s5">"shield-check"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"w-4 h-4"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s1"> 秘密厳守・匿名相談OK</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Scroll Indicator --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-20 flex flex-col items-center gap-2 opacity-70"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xs tracking-widest uppercase"</span><span class="s3">&gt;</span><span class="s4">Scroll</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"chevron-down"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-5 h-5"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Brand Declaration (Philosophy) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"philosophy"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"py-24 md:py-32 bg-secondary/30 relative overflow-hidden"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Decorative Japanese Pattern Background (Subtle) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-4xl mx-auto text-center fade-in-up"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl md:text-4xl font-serif font-medium leading-loose text-primary mb-12"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>譲渡からも、譲受からも、</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>手数料を取らない。</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-base md:text-xl mt-6 block text-text font-normal"</span><span class="s3">&gt;</span><span class="s4">それが、薬局の適切な世代交代を進めるための</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"md:hidden"</span><span class="s3">&gt;</span><span class="s4">私たちの選択です。</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-left md:text-center md:mx-auto max-w-2xl space-y-8 font-light text-lg leading-loose text-gray-700"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>調剤薬局の世代交代が滞ると、困るのは患者さんと地域です。</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>一方で、M＆Aが「手数料が発生するイベント」になると、売り手も買い手も本音の相談が遅れ、判断が条件偏重になりがちです。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>のぶのぶM＆Aは、譲渡側・譲受側の双方から仲介手数料をいただかない仕組みにすることで、早い段階から相談できる環境をつくり、理念の一致を軸に、無理のない世代交代を後押しします。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-16 inline-block border-y border-primary/20 py-8 px-4 md:px-12"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-serif text-xl md:text-2xl text-primary font-medium"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>私たちは「成約件数」ではなく、</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>「引き継いだ後に薬局が安定して続くこと」を成果と考えます。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Why 0 Yen? (Reason) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"reason"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"py-24 bg-white"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid md:grid-cols-2 gap-16 items-center"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fade-in-up"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-accent font-bold tracking-widest text-sm uppercase mb-2 block"</span><span class="s3">&gt;</span><span class="s4">Our Design</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl md:text-5xl font-serif text-primary mb-8 leading-tight"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>0円は、</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span><span class="s1">値引きではなく、</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span><span class="s1">「設計」です。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"space-y-6 text-gray-600 leading-relaxed"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>手数料が発生すると、どうしても「決めること」自体が目的になりやすい。</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>しかし本来の目的は、患者さん・スタッフ・地域にとって無理のない形で薬局が引き継がれることです。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>のぶのぶM＆Aは、譲渡側・譲受側の双方から仲介手数料を取らないことで、早期相談を促し、理念のすり合わせに時間を使える構造にしています。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-start gap-3 mt-4 text-primary font-medium"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"check-circle-2"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-6 h-6 flex-shrink-0 text-accent"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>中立性を損なう形で“急がせるインセンティブ”をつくらないためです。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Graphic Representation with Fallback --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative h-96 rounded-2xl overflow-hidden shadow-2xl fade-in-up delay-100"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">img</span><span class="s1"> </span><span class="s2">src</span><span class="s3">=</span><span class="s5">"images/2.png"</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s2">onerror</span><span class="s3">=</span><span class="s1">"this.onerror=null; this.src='https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&amp;w=2070&amp;auto=format&amp;fit=crop';"</span><span class="s4"><span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                         </span></span><span class="s2">alt</span><span class="s3">=</span><span class="s5">"手数料0円の仕組みイメージ（架け橋）"</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full h-full object-cover hover:scale-105 transition-transform duration-700"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6 text-white"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-serif"</span><span class="s3">&gt;</span><span class="s1">「コスト」の壁をなくし、「対話」の時間をつくる。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Benefits (Translation to Benefit) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"benefits"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"py-24 bg-primary text-white relative"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6 relative z-10"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-center mb-20 fade-in-up"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-accent font-bold tracking-widest text-sm uppercase mb-2 block"</span><span class="s3">&gt;</span><span class="s4">Merit</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl md:text-4xl font-serif mb-6"</span><span class="s3">&gt;</span><span class="s4">早めに動けるから、</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"md:hidden"</span><span class="s3">&gt;</span><span class="s4">守れるものが増えます。</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-white/70"</span><span class="s3">&gt;</span><span class="s1">結果として、譲渡後の「現場の安定」に繋がります。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid md:grid-cols-2 lg:grid-cols-4 gap-6"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">&lt;!-- Card 1 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"message-circle"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-10 h-10 text-accent mb-6"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xl font-serif mb-4"</span><span class="s3">&gt;</span><span class="s1">選択肢づくり</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-white/80 leading-relaxed"</span><span class="s3">&gt;</span><span class="s1">手数料を気にせず、早い段階で「どうすべきか」の相談から始められます。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">&lt;!-- Card 2 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-200"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"scale"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-10 h-10 text-accent mb-6"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xl font-serif mb-4"</span><span class="s3">&gt;</span><span class="s1">交渉の質が向上</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-white/80 leading-relaxed"</span><span class="s3">&gt;</span><span class="s1">理念・雇用・引継ぎの優先順位を整理し、条件交渉のブレを減らします。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">&lt;!-- Card 3 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-300"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"piggy-bank"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-10 h-10 text-accent mb-6"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xl font-serif mb-4"</span><span class="s3">&gt;</span><span class="s1">現場投資を守る</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-white/80 leading-relaxed"</span><span class="s3">&gt;</span><span class="s1">買い手の手数料負担がない分、現場の人員や教育への投資が守られやすくなります。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">&lt;!-- Card 4 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-400"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"handshake"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-10 h-10 text-accent mb-6"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xl font-serif mb-4"</span><span class="s3">&gt;</span><span class="s1">運営方針の継承</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-white/80 leading-relaxed"</span><span class="s3">&gt;</span><span class="s1">短期回収の圧力が下がるため、あなたの運営方針が尊重されやすくなります。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- NEW SECTION: Flow (ご利用の流れ) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"flow"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"py-24 bg-white"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">             </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-center mb-16 fade-in-up"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-accent font-bold tracking-widest text-sm uppercase mb-2 block"</span><span class="s3">&gt;</span><span class="s4">Process</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl md:text-4xl font-serif text-primary"</span><span class="s3">&gt;</span><span class="s4">合意までの流れ</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative max-w-4xl mx-auto"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Connecting Line (Desktop) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -z-10 -translate-y-1/2"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid md:grid-cols-4 gap-8"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s9">&lt;!-- Step 1 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white"</span><span class="s3">&gt;</span><span class="s4">1</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-4 font-bold text-lg mb-2 text-primary"</span><span class="s3">&gt;</span><span class="s4">無料相談</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">まずは匿名でのご相談から。現状の整理をお手伝いします。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s9">&lt;!-- Step 2 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-200"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white"</span><span class="s3">&gt;</span><span class="s4">2</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-4 font-bold text-lg mb-2 text-primary"</span><span class="s3">&gt;</span><span class="s4">理念マッチング</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">条件の前に、理念や想いが合うお相手を探します。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s9">&lt;!-- Step 3 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-300"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white"</span><span class="s3">&gt;</span><span class="s4">3</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-4 font-bold text-lg mb-2 text-primary"</span><span class="s3">&gt;</span><span class="s4">トップ面談</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">経営者同士でお話しいただき、将来像を共有します。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s9">&lt;!-- Step 4 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-400"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white"</span><span class="s3">&gt;</span><span class="s4">4</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-4 font-bold text-lg mb-2 text-primary"</span><span class="s3">&gt;</span><span class="s4">条件合意・引継ぎ</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">手数料0円で契約。浮いた資金でスムーズな引継ぎへ。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Philosophy Match (Criteria) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"py-24 bg-secondary/20"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden fade-in-up"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"p-10 md:p-16"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl md:text-3xl font-serif text-primary text-center mb-10"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>世代交代でいちばん大切なのは、</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>“引き継ぐべき基準”を先に決めること。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid md:grid-cols-2 gap-10"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-bold text-gray-400 text-sm mb-4 tracking-widest"</span><span class="s3">&gt;</span><span class="s4">売り手が守りたいもの</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">ul</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"space-y-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-start gap-3"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"check"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-3 h-3"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s6">strong</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"block text-primary mb-1"</span><span class="s3">&gt;</span><span class="s1">患者さん対応</span><span class="s3">&lt;/</span><span class="s6">strong</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">服薬指導、在宅医療への姿勢、かかりつけ機能</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-start gap-3"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"check"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-3 h-3"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s6">strong</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"block text-primary mb-1"</span><span class="s3">&gt;</span><span class="s1">スタッフの処遇</span><span class="s3">&lt;/</span><span class="s6">strong</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">雇用の継続、給与・待遇、教育環境</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-bold text-gray-400 text-sm mb-4 tracking-widest invisible md:visible"</span><span class="s3">&gt;</span><span class="s4">売り手が守りたいもの</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">ul</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"space-y-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-start gap-3"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"check"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-3 h-3"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s6">strong</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"block text-primary mb-1"</span><span class="s3">&gt;</span><span class="s1">運営の継続性</span><span class="s3">&lt;/</span><span class="s6">strong</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">業務の標準化と裁量、在庫管理手法</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-start gap-3"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"check"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-3 h-3"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s6">strong</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"block text-primary mb-1"</span><span class="s3">&gt;</span><span class="s1">地域との連携</span><span class="s3">&lt;/</span><span class="s6">strong</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">医療機関・ケアマネジャー・施設との関係</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-12 p-6 bg-secondary/30 rounded-lg text-center"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-serif text-primary text-lg"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>価格は重要です。</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"md:hidden"</span><span class="s3">&gt;</span><span class="s1">ただ、価格の前に“続く条件”をそろえるのが、</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"hidden md:inline"</span><span class="s3">&gt;</span><span class="s1">適切な世代交代です。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- NEW SECTION: FAQ (よくある質問) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"faq"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"py-24 bg-white"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6 max-w-3xl"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-center mb-16 fade-in-up"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-accent font-bold tracking-widest text-sm uppercase mb-2 block"</span><span class="s3">&gt;</span><span class="s4">Q&amp;A</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl md:text-4xl font-serif text-primary"</span><span class="s3">&gt;</span><span class="s4">よくあるご質問</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"space-y-4 fade-in-up delay-100"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">&lt;!-- Q1 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">details</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">summary</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-between p-6 font-medium text-lg text-primary"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">本当に手数料は0円ですか？</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"chevron-down"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">summary</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>はい、譲渡側・譲受側ともに仲介手数料は一切いただきません。私たちは世代交代後の薬局の存続を最優先にしており、その障壁となるコストを排除する設計にしています。ただし、登記や契約書の作成など、士業への実費が発生する場合はございます。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">details</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">&lt;!-- Q2 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">details</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">summary</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-between p-6 font-medium text-lg text-primary"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">従業員に知られずに相談できますか？</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"chevron-down"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">summary</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>可能です。秘密保持契約を締結し、情報管理を徹底いたします。初期段階では匿名でのご相談も承っておりますので、安心してご相談ください。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">details</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">&lt;!-- Q3 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">details</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">summary</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-between p-6 font-medium text-lg text-primary"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">小規模な薬局でも相談可能ですか？</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"chevron-down"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">summary</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>もちろんです。むしろ、地域に根差した小規模な薬局こそ、無理のない引継ぎが必要だと考えています。規模に関わらず、理念を大切にされる方であれば歓迎いたします。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">details</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">&lt;!-- Q4 --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">details</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">summary</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-between p-6 font-medium text-lg text-primary"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">もし話がまとまらなかった場合、費用はかかりますか？</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"chevron-down"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">summary</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>いいえ、一切かかりません。お互いが納得できる場合のみ進めるのが私たちのスタンスですので、無理な成約を勧めることはありません。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">details</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- NEW SECTION: Company Message (代表メッセージ) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"message"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"py-24 bg-primary text-white relative overflow-hidden"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">             </span></span><span class="s1">&lt;!-- Abstract background pattern placeholder --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">             </span></span><span class="s3">&lt;</span><span class="s6">svg</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full h-full"</span><span class="s4"> </span><span class="s2">viewBox</span><span class="s3">=</span><span class="s1">"0 0 100 100"</span><span class="s4"> </span><span class="s2">preserveAspectRatio</span><span class="s3">=</span><span class="s1">"none"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                 </span></span><span class="s3">&lt;</span><span class="s6">path</span><span class="s4"> </span><span class="s2">d</span><span class="s3">=</span><span class="s1">"M0 100 L100 0 L100 100 Z"</span><span class="s4"> </span><span class="s2">fill</span><span class="s3">=</span><span class="s1">"currentColor"</span><span class="s3">/&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">             </span></span><span class="s3">&lt;/</span><span class="s6">svg</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6 relative z-10"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid md:grid-cols-2 gap-12 items-center"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Message Image with Fallback --&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fade-in-up"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">img</span><span class="s1"> </span><span class="s2">src</span><span class="s3">=</span><span class="s5">"images/3.png"</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s2">onerror</span><span class="s3">=</span><span class="s1">"this.onerror=null; this.src='https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&amp;w=2070&amp;auto=format&amp;fit=crop';"</span><span class="s4"><span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                         </span></span><span class="s2">alt</span><span class="s3">=</span><span class="s5">"代表者メッセージイメージ"</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"rounded-xl shadow-2xl w-full object-cover h-[500px]"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fade-in-up delay-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-accent font-bold tracking-widest text-sm uppercase mb-4 block"</span><span class="s3">&gt;</span><span class="s4">Message</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl md:text-4xl font-serif mb-8 leading-snug"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>「残すこと」に、</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span><span class="s1">もっと純粋でありたい。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"space-y-6 text-white/80 leading-loose"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>M&amp;Aは本来、企業の存続と発展のための手段です。</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>しかし、高額な手数料がそのハードルとなり、本来残るべき薬局がなくなってしまうことや、無理な条件での引継ぎが行われることに違和感を感じていました。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>私たちは「手数料0円」という形をとることで、そのハードルを取り除きます。</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>利益相反のないフラットな立場で、地域医療を守る薬局のバトンパスを支えたい。</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span><span class="s1">それが私たちの想いです。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Closing (CTA) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"contact"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"py-24 md:py-32 bg-white relative overflow-hidden text-center"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Abstract Decoration --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/40 rounded-full blur-3xl -z-10"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6 relative z-10 fade-in-up"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl md:text-5xl font-serif text-primary mb-8 leading-snug"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>薬局の世代交代を、</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>もっと自然に。もっと誠実に。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-2xl mx-auto mb-12 space-y-4 text-gray-600 leading-relaxed"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span><span class="s1">譲渡は、終わりではなくバトンです。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span><span class="s1">双方の手数料を0円にするのは、相談を早め、無理のない合意形成を増やすため。</span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span><span class="s1">この薬局の理念を、次の担い手へ。いちばん良い形でつなぎましょう。</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"btn-hover inline-flex items-center justify-center bg-primary text-white px-10 py-5 rounded-full font-bold text-lg shadow-xl group hover:bg-primary/90"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>無料で譲渡相談する</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">data-lucide</span><span class="s3">=</span><span class="s1">"arrow-right"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-4 text-sm text-gray-500"</span><span class="s3">&gt;</span><span class="s4">匿名OK / 秘密厳守</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Footer --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">footer</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gray-50 py-12 border-t border-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid md:grid-cols-2 gap-8 mb-12"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center gap-2 mb-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white font-serif text-xs font-bold"</span><span class="s3">&gt;</span><span class="s4">の</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-lg font-bold text-primary font-serif"</span><span class="s3">&gt;</span><span class="s4">のぶのぶM&amp;A</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-500 mb-2"</span><span class="s3">&gt;</span><span class="s1">■手数料0円について</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">ul</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xs text-gray-400 space-y-1 list-disc pl-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">譲渡側・譲受側ともに、仲介手数料（成功報酬）は0円です。</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">必要に応じて、資料作成支援や士業連携など任意のオプションをご案内する場合があります（実施は希望者のみ）。</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex flex-col md:items-end justify-center"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                   </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"space-x-6 text-sm text-gray-600 mb-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                       </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hover:text-primary transition-colors"</span><span class="s3">&gt;</span><span class="s4">運営会社</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                       </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hover:text-primary transition-colors"</span><span class="s3">&gt;</span><span class="s4">プライバシーポリシー</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                       </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hover:text-primary transition-colors"</span><span class="s3">&gt;</span><span class="s4">お問い合わせ</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                   </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                   </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xs text-gray-400"</span><span class="s3">&gt;</span><span class="s1">© Nobunobu M&amp;A. All Rights Reserved.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">footer</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Scripts --&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Lucide Icons Initialization</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>lucide.createIcons();</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Fade In Animation on Scroll</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">const</span><span class="s1"> observerOptions = {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>root: </span><span class="s12">null</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>rootMargin: </span><span class="s8">'0px'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>threshold: </span><span class="s13">0.1</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">const</span><span class="s1"> observer = </span><span class="s12">new</span><span class="s1"> </span><span class="s14">IntersectionObserver</span><span class="s1">((entries, observer) =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>entries.forEach(entry =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s12">if</span><span class="s1"> (entry.isIntersecting) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>entry.target.classList.add(</span><span class="s8">'visible'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>observer.unobserve(entry.target);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}, observerOptions);</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>document.querySelectorAll(</span><span class="s8">'.fade-in-up'</span><span class="s1">).forEach(el =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>observer.observe(el);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+<body class="font-sans text-text antialiased bg-white selection:bg-primary selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <!-- Logo Placeholder -->
+                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-serif font-bold">の</div>
+                <span class="text-xl font-bold tracking-widest text-primary font-serif">のぶのぶM&A</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#philosophy" class="text-sm font-medium hover:text-primary transition-colors">理念</a>
+                <a href="#reason" class="text-sm font-medium hover:text-primary transition-colors">仕組み</a>
+                <a href="#flow" class="text-sm font-medium hover:text-primary transition-colors">流れ</a>
+                <a href="#faq" class="text-sm font-medium hover:text-primary transition-colors">Q&A</a>
+                <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-full text-sm hover:bg-opacity-90 transition-all shadow-md">無料相談</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- First View (Hero) -->
+    <section class="relative w-full h-screen flex items-center overflow-hidden">
+        <!-- Background Image with Fallback -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/1.png" 
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1631549916768-4119b2d5f926?q=80&w=2079&auto=format&fit=crop';" 
+                 alt="薬局のカウンターに立つ薬剤師" 
+                 class="w-full h-full object-cover">
+        </div>
+        <!-- Overlay -->
+        <div class="absolute inset-0 hero-overlay z-10"></div>
+
+        <div class="container mx-auto px-6 relative z-20 pt-20">
+            <div class="max-w-3xl text-white fade-in-up">
+                <p class="text-accent font-serif tracking-widest mb-4 text-sm md:text-base">調剤薬局専門の事業承継支援</p>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-medium leading-tight mb-8">
+                    この薬局を、<br>
+                    いちばん良いかたちで<br>
+                    次の世代へ。
+                </h1>
+                <p class="text-lg md:text-xl font-light leading-relaxed opacity-90 mb-10 border-l-4 border-accent pl-6">
+                    譲渡側も譲受側も手数料0円。<br>
+                    だからこそ、急がせない。煽らない。<br>
+                    “適切な世代交代”を実現するための選択です。
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="btn-hover inline-flex items-center justify-center bg-white text-primary px-8 py-4 rounded-full font-bold text-lg shadow-lg group">
+                        無料で譲渡相談する
+                        <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <span class="text-white/80 text-sm flex items-center gap-2 px-2 py-4">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i> 秘密厳守・匿名相談OK
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-20 flex flex-col items-center gap-2 opacity-70">
+            <span class="text-xs tracking-widest uppercase">Scroll</span>
+            <i data-lucide="chevron-down" class="w-5 h-5"></i>
+        </div>
+    </section>
+
+    <!-- Brand Declaration (Philosophy) -->
+    <section id="philosophy" class="py-24 md:py-32 bg-secondary/30 relative overflow-hidden">
+        <!-- Decorative Japanese Pattern Background (Subtle) -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in-up">
+                <h2 class="text-2xl md:text-4xl font-serif font-medium leading-loose text-primary mb-12">
+                    譲渡からも、譲受からも、<br>
+                    手数料を取らない。<br>
+                    <span class="text-base md:text-xl mt-6 block text-text font-normal">それが、薬局の適切な世代交代を進めるための<br class="md:hidden">私たちの選択です。</span>
+                </h2>
+                
+                <div class="text-left md:text-center md:mx-auto max-w-2xl space-y-8 font-light text-lg leading-loose text-gray-700">
+                    <p>
+                        調剤薬局の世代交代が滞ると、困るのは患者さんと地域です。<br>
+                        一方で、M＆Aが「手数料が発生するイベント」になると、売り手も買い手も本音の相談が遅れ、判断が条件偏重になりがちです。
+                    </p>
+                    <p>
+                        のぶのぶM＆Aは、譲渡側・譲受側の双方から仲介手数料をいただかない仕組みにすることで、早い段階から相談できる環境をつくり、理念の一致を軸に、無理のない世代交代を後押しします。
+                    </p>
+                </div>
+
+                <div class="mt-16 inline-block border-y border-primary/20 py-8 px-4 md:px-12">
+                    <p class="font-serif text-xl md:text-2xl text-primary font-medium">
+                        私たちは「成約件数」ではなく、<br>
+                        「引き継いだ後に薬局が安定して続くこと」を成果と考えます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why 0 Yen? (Reason) -->
+    <section id="reason" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in-up">
+                    <span class="text-accent font-bold tracking-widest text-sm uppercase mb-2 block">Our Design</span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-primary mb-8 leading-tight">
+                        0円は、<br>値引きではなく、<br>「設計」です。
+                    </h2>
+                    <div class="space-y-6 text-gray-600 leading-relaxed">
+                        <p>
+                            手数料が発生すると、どうしても「決めること」自体が目的になりやすい。<br>
+                            しかし本来の目的は、患者さん・スタッフ・地域にとって無理のない形で薬局が引き継がれることです。
+                        </p>
+                        <p>
+                            のぶのぶM＆Aは、譲渡側・譲受側の双方から仲介手数料を取らないことで、早期相談を促し、理念のすり合わせに時間を使える構造にしています。
+                        </p>
+                        <p class="flex items-start gap-3 mt-4 text-primary font-medium">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 flex-shrink-0 text-accent"></i>
+                            中立性を損なう形で“急がせるインセンティブ”をつくらないためです。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Graphic Representation with Fallback -->
+                <div class="relative h-96 rounded-2xl overflow-hidden shadow-2xl fade-in-up delay-100">
+                    <img src="images/2.png" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=2070&auto=format&fit=crop';" 
+                         alt="手数料0円の仕組みイメージ（架け橋）" 
+                         class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6 text-white">
+                        <p class="font-serif">「コスト」の壁をなくし、「対話」の時間をつくる。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits (Translation to Benefit) -->
+    <section id="benefits" class="py-24 bg-primary text-white relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20 fade-in-up">
+                <span class="text-accent font-bold tracking-widest text-sm uppercase mb-2 block">Merit</span>
+                <h2 class="text-3xl md:text-4xl font-serif mb-6">早めに動けるから、<br class="md:hidden">守れるものが増えます。</h2>
+                <p class="text-white/70">結果として、譲渡後の「現場の安定」に繋がります。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-100">
+                    <i data-lucide="message-circle" class="w-10 h-10 text-accent mb-6"></i>
+                    <h3 class="text-xl font-serif mb-4">選択肢づくり</h3>
+                    <p class="text-sm text-white/80 leading-relaxed">手数料を気にせず、早い段階で「どうすべきか」の相談から始められます。</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-200">
+                    <i data-lucide="scale" class="w-10 h-10 text-accent mb-6"></i>
+                    <h3 class="text-xl font-serif mb-4">交渉の質が向上</h3>
+                    <p class="text-sm text-white/80 leading-relaxed">理念・雇用・引継ぎの優先順位を整理し、条件交渉のブレを減らします。</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-300">
+                    <i data-lucide="piggy-bank" class="w-10 h-10 text-accent mb-6"></i>
+                    <h3 class="text-xl font-serif mb-4">現場投資を守る</h3>
+                    <p class="text-sm text-white/80 leading-relaxed">買い手の手数料負担がない分、現場の人員や教育への投資が守られやすくなります。</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-all fade-in-up delay-400">
+                    <i data-lucide="handshake" class="w-10 h-10 text-accent mb-6"></i>
+                    <h3 class="text-xl font-serif mb-4">運営方針の継承</h3>
+                    <p class="text-sm text-white/80 leading-relaxed">短期回収の圧力が下がるため、あなたの運営方針が尊重されやすくなります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Flow (ご利用の流れ) -->
+    <section id="flow" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+             <div class="text-center mb-16 fade-in-up">
+                <span class="text-accent font-bold tracking-widest text-sm uppercase mb-2 block">Process</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-primary">合意までの流れ</h2>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -z-10 -translate-y-1/2"></div>
+
+                <div class="grid md:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-100">
+                        <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white">1</div>
+                        <h3 class="mt-4 font-bold text-lg mb-2 text-primary">無料相談</h3>
+                        <p class="text-sm text-gray-600">まずは匿名でのご相談から。現状の整理をお手伝いします。</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-200">
+                         <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white">2</div>
+                        <h3 class="mt-4 font-bold text-lg mb-2 text-primary">理念マッチング</h3>
+                        <p class="text-sm text-gray-600">条件の前に、理念や想いが合うお相手を探します。</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-300">
+                         <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white">3</div>
+                        <h3 class="mt-4 font-bold text-lg mb-2 text-primary">トップ面談</h3>
+                        <p class="text-sm text-gray-600">経営者同士でお話しいただき、将来像を共有します。</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="bg-white p-6 rounded-lg text-center border border-gray-100 shadow-lg relative fade-in-up delay-400">
+                         <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-white">4</div>
+                        <h3 class="mt-4 font-bold text-lg mb-2 text-primary">条件合意・引継ぎ</h3>
+                        <p class="text-sm text-gray-600">手数料0円で契約。浮いた資金でスムーズな引継ぎへ。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Match (Criteria) -->
+    <section class="py-24 bg-secondary/20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden fade-in-up">
+                <div class="p-10 md:p-16">
+                    <h2 class="text-2xl md:text-3xl font-serif text-primary text-center mb-10">
+                        世代交代でいちばん大切なのは、<br>
+                        “引き継ぐべき基準”を先に決めること。
+                    </h2>
+
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <div>
+                            <p class="font-bold text-gray-400 text-sm mb-4 tracking-widest">売り手が守りたいもの</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></span>
+                                    <div>
+                                        <strong class="block text-primary mb-1">患者さん対応</strong>
+                                        <span class="text-sm text-gray-600">服薬指導、在宅医療への姿勢、かかりつけ機能</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></span>
+                                    <div>
+                                        <strong class="block text-primary mb-1">スタッフの処遇</strong>
+                                        <span class="text-sm text-gray-600">雇用の継続、給与・待遇、教育環境</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-400 text-sm mb-4 tracking-widest invisible md:visible">売り手が守りたいもの</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></span>
+                                    <div>
+                                        <strong class="block text-primary mb-1">運営の継続性</strong>
+                                        <span class="text-sm text-gray-600">業務の標準化と裁量、在庫管理手法</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></span>
+                                    <div>
+                                        <strong class="block text-primary mb-1">地域との連携</strong>
+                                        <span class="text-sm text-gray-600">医療機関・ケアマネジャー・施設との関係</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 p-6 bg-secondary/30 rounded-lg text-center">
+                        <p class="font-serif text-primary text-lg">
+                            価格は重要です。<br class="md:hidden">ただ、価格の前に“続く条件”をそろえるのが、<br class="hidden md:inline">適切な世代交代です。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: FAQ (よくある質問) -->
+    <section id="faq" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-accent font-bold tracking-widest text-sm uppercase mb-2 block">Q&A</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-primary">よくあるご質問</h2>
+            </div>
+            
+            <div class="space-y-4 fade-in-up delay-100">
+                <!-- Q1 -->
+                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100">
+                    <summary class="flex items-center justify-between p-6 font-medium text-lg text-primary">
+                        <span>本当に手数料は0円ですか？</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4">
+                        はい、譲渡側・譲受側ともに仲介手数料は一切いただきません。私たちは世代交代後の薬局の存続を最優先にしており、その障壁となるコストを排除する設計にしています。ただし、登記や契約書の作成など、士業への実費が発生する場合はございます。
+                    </div>
+                </details>
+
+                <!-- Q2 -->
+                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100">
+                    <summary class="flex items-center justify-between p-6 font-medium text-lg text-primary">
+                        <span>従業員に知られずに相談できますか？</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4">
+                        可能です。秘密保持契約を締結し、情報管理を徹底いたします。初期段階では匿名でのご相談も承っておりますので、安心してご相談ください。
+                    </div>
+                </details>
+
+                <!-- Q3 -->
+                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100">
+                    <summary class="flex items-center justify-between p-6 font-medium text-lg text-primary">
+                        <span>小規模な薬局でも相談可能ですか？</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4">
+                        もちろんです。むしろ、地域に根差した小規模な薬局こそ、無理のない引継ぎが必要だと考えています。規模に関わらず、理念を大切にされる方であれば歓迎いたします。
+                    </div>
+                </details>
+
+                <!-- Q4 -->
+                <details class="group bg-gray-50 rounded-xl overflow-hidden cursor-pointer transition-all hover:bg-gray-100">
+                    <summary class="flex items-center justify-between p-6 font-medium text-lg text-primary">
+                        <span>もし話がまとまらなかった場合、費用はかかりますか？</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200 pt-4">
+                        いいえ、一切かかりません。お互いが納得できる場合のみ進めるのが私たちのスタンスですので、無理な成約を勧めることはありません。
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Company Message (代表メッセージ) -->
+    <section id="message" class="py-24 bg-primary text-white relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
+             <!-- Abstract background pattern placeholder -->
+             <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                 <path d="M0 100 L100 0 L100 100 Z" fill="currentColor"/>
+             </svg>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Message Image with Fallback -->
+                <div class="fade-in-up">
+                    <img src="images/3.png" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop';" 
+                         alt="代表者メッセージイメージ" 
+                         class="rounded-xl shadow-2xl w-full object-cover h-[500px]">
+                </div>
+                
+                <div class="fade-in-up delay-100">
+                    <span class="text-accent font-bold tracking-widest text-sm uppercase mb-4 block">Message</span>
+                    <h2 class="text-3xl md:text-4xl font-serif mb-8 leading-snug">
+                        「残すこと」に、<br>もっと純粋でありたい。
+                    </h2>
+                    <div class="space-y-6 text-white/80 leading-loose">
+                        <p>
+                            M&Aは本来、企業の存続と発展のための手段です。<br>
+                            しかし、高額な手数料がそのハードルとなり、本来残るべき薬局がなくなってしまうことや、無理な条件での引継ぎが行われることに違和感を感じていました。
+                        </p>
+                        <p>
+                            私たちは「手数料0円」という形をとることで、そのハードルを取り除きます。<br>
+                            利益相反のないフラットな立場で、地域医療を守る薬局のバトンパスを支えたい。<br>それが私たちの想いです。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing (CTA) -->
+    <section id="contact" class="py-24 md:py-32 bg-white relative overflow-hidden text-center">
+        <!-- Abstract Decoration -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/40 rounded-full blur-3xl -z-10"></div>
+
+        <div class="container mx-auto px-6 relative z-10 fade-in-up">
+            <h2 class="text-3xl md:text-5xl font-serif text-primary mb-8 leading-snug">
+                薬局の世代交代を、<br>
+                もっと自然に。もっと誠実に。
+            </h2>
+            <div class="max-w-2xl mx-auto mb-12 space-y-4 text-gray-600 leading-relaxed">
+                <p>譲渡は、終わりではなくバトンです。</p>
+                <p>双方の手数料を0円にするのは、相談を早め、無理のない合意形成を増やすため。<br>この薬局の理念を、次の担い手へ。いちばん良い形でつなぎましょう。</p>
+            </div>
+            
+            <a href="#" class="btn-hover inline-flex items-center justify-center bg-primary text-white px-10 py-5 rounded-full font-bold text-lg shadow-xl group hover:bg-primary/90">
+                無料で譲渡相談する
+                <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <p class="mt-4 text-sm text-gray-500">匿名OK / 秘密厳守</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-12 border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                         <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white font-serif text-xs font-bold">の</div>
+                        <span class="text-lg font-bold text-primary font-serif">のぶのぶM&A</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-2">■手数料0円について</p>
+                    <ul class="text-xs text-gray-400 space-y-1 list-disc pl-4">
+                        <li>譲渡側・譲受側ともに、仲介手数料（成功報酬）は0円です。</li>
+                        <li>必要に応じて、資料作成支援や士業連携など任意のオプションをご案内する場合があります（実施は希望者のみ）。</li>
+                    </ul>
+                </div>
+                <div class="flex flex-col md:items-end justify-center">
+                   <div class="space-x-6 text-sm text-gray-600 mb-4">
+                       <a href="#" class="hover:text-primary transition-colors">運営会社</a>
+                       <a href="#" class="hover:text-primary transition-colors">プライバシーポリシー</a>
+                       <a href="#" class="hover:text-primary transition-colors">お問い合わせ</a>
+                   </div>
+                   <p class="text-xs text-gray-400">© Nobunobu M&A. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Fade In Animation on Scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
